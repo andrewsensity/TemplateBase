@@ -2,9 +2,10 @@ package com.andres.noteapp.feature_note.domain.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.andres.noteapp.feature_note.data.data_source.NoteDatabase.Companion.NOTE_DATABASE
 import com.andres.noteapp.ui.theme.*
 
-@Entity
+@Entity(tableName = NOTE_DATABASE)
 data class Note(
     val title: String,
     val content: String,
@@ -17,4 +18,4 @@ data class Note(
     }
 }
 
-class InvalidNoteException(message: String): Exception(message)
+class InvalidNoteException(message: String) : Exception(message)

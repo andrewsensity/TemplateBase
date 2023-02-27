@@ -1,7 +1,6 @@
 package com.andres.noteapp.feature_note.presentation.notes
 
 import androidx.compose.runtime.State
-import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -69,13 +68,7 @@ class NotesViewModel @Inject constructor(
         }.launchIn(viewModelScope)
     }
 
-    fun getNoteById(id: Int) {
-        viewModelScope.launch {
-            noteUseCases.getNoteByIdUseCase(id = id)
-        }
-    }
-
-    private fun insertNote(note: Note) {
+    fun insertNote(note: Note) {
         viewModelScope.launch {
             noteUseCases.insertNoteUseCase(note)
         }
